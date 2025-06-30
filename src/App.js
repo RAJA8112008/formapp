@@ -12,7 +12,7 @@ function App() {
 //     // console.log(event.target.value);
 //     setLastname(event.target.value);
 //   }
-const[FormData,setFormData]=useState({First:"",Last:"",email:"",comments:"",isvisible:true})
+const[FormData,setFormData]=useState({First:"",Last:"",email:"",comments:"",isvisible:true,mode:""})
 console.log(FormData);
    function ChangeHandler(event){
     const{name,type,checked,value}=event.target
@@ -40,6 +40,13 @@ console.log(FormData);
    <br/>
   <input type='checkbox' name='isvisible' onChange={ChangeHandler} id='isvisible' checked={FormData.isvisible}/>
   <label htmlFor='isvisible'>AM i visible ?</label>
+  <br/>
+   <br/>
+   <input type='radio' name='mode' value='online-mode' checked={FormData.value==="online-mode"} id='online-mode' onChange={ChangeHandler}/>
+   <label htmlFor='mode'>Online-mode</label>
+
+   <input type='radio' name='mode' value='offline-mode' checked={FormData.value==="offline-mode"} id='offline-mode' onChange={ChangeHandler}/>
+   <label htmlFor='mode'>Offline-mode</label>
    </form>
 
     </div>

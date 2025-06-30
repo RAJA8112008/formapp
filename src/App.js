@@ -42,11 +42,15 @@ console.log(FormData);
   <label htmlFor='isvisible'>AM i visible ?</label>
   <br/>
    <br/>
-   <input type='radio' name='mode' value='online-mode' checked={FormData.value==="online-mode"} id='online-mode' onChange={ChangeHandler}/>
+   <fieldset>
+    <legend>Mode:</legend>
+      <input type='radio' name='mode' value='online-mode' checked={FormData.value==="online-mode"} id='online-mode' onChange={ChangeHandler}/>
    <label htmlFor='mode'>Online-mode</label>
 
    <input type='radio' name='mode' value='offline-mode' checked={FormData.value==="offline-mode"} id='offline-mode' onChange={ChangeHandler}/>
    <label htmlFor='mode'>Offline-mode</label>
+   </fieldset>
+ 
    </form>
 
     </div>

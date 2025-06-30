@@ -1,21 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { useState } from 'react';
 function App() {
-  function onfirstHandler(event){
-    console.log(event.target.value);
-  }
-  function onLastHandler(event){
-    console.log(event.target.value);
-  }
+//   const [Firstname,setFirstname]=useState("");
+// const [Lastname,setLastname]=useState("");
+//   function onfirstHandler(event){
+//     // console.log(event.target.value);
+//     setFirstname(event.target.value);
+//   }
+//   function onLastHandler(event){
+//     // console.log(event.target.value);
+//     setLastname(event.target.value);
+//   }
+const[FormData,setFormData]=useState({First:"",Last:"",email:""})
+console.log(FormData.email)
+   function ChangeHandler(event){
+  setFormData(prevFormData=>{
+    return {
+      ...prevFormData,
+      [event.target.name]:event.target.value
+    }
+  });
+   }
   return (
     <div className="App">
       <form>
-   <input type='text' placeholder='first Name' onChange={onfirstHandler}/>
+   <input type='text' placeholder='first Name' onChange={ChangeHandler} name="First name" value={FormData.firstname}/>
    <br/>
    <br/>
-   <input type='text' placeholder='Last Name'  onChange={onLastHandler}/>
+   <input type='text' placeholder='Last Name'  onChange={ChangeHandler} name="Last name" value={FormData.lastname}/>
+   <br/>
+   <br/>
+   <input  type='email' placeholder='Enter your mail' onChange={ChangeHandler} name='email' value={FormData.email}/>
    </form>
+   
     </div>
   );
 }

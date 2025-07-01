@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 function App() {
-  const[FormData,setFormData]=useState({firstName:"",lastName:"",email:""})
+  const[FormData,setFormData]=useState({firstName:"",lastName:"",email:"",country:""})
   function ChangeHandler(event){
     const{name,value,type,checked}=event.target;
     setFormData((prev)=>({...prev,
@@ -32,7 +32,7 @@ function App() {
       name='lastname'
       placeholder='Kumar'
        onChange={ChangeHandler}
-      value={FormData.LastName}
+      value={FormData.lastName}
       />
       <br/>
       <label htmlFor='name'>Email</label>
@@ -45,6 +45,24 @@ function App() {
        onChange={ChangeHandler}
       value={FormData.email}
       />
+      <br/>
+
+<label htmlFor='country'>Country</label>
+      <br/>
+      <select 
+      type='text'
+      id='country'
+      name='country'
+      value={FormData.country}
+      onChange={ChangeHandler}
+      >
+        <option>India</option>
+        <option>United Kingdom</option>
+        <option>America</option>
+        <option>China</option>
+      </select>
+
+
      </form>
 
     </div>

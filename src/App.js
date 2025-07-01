@@ -3,7 +3,8 @@ import './App.css';
 import { useState } from 'react';
 function App() {
   const[FormData,setFormData]=useState({firstName:"",lastName:"",email:"",country:"",streetaddress:"",
-    city:"",state:"",postal:"",comments:false,offer:false,candidate:false
+    city:"",state:"",postal:"",comments:false,offer:false,candidate:false,everything:false,sameasemail:false,
+    nopushnotification:false
   })
   function ChangeHandler(event){
     const{name,value,type,checked}=event.target;
@@ -144,8 +145,35 @@ onChange={ChangeHandler}
   <label>Offer</label>
   <p>get notified when someone post a job</p>
 </div>
-
 </div>
+    </setfield>
+    <setfield>
+      <label>Push Notifications</label>
+      <div>These are delivered via SMS to your mobile phone</div>
+      <input 
+      type='radio'
+      id='everything'
+      name='everything'
+      value={FormData.everything}
+      onChange={ChangeHandler}
+      />
+      <label htmlFor='everything'>Everything</label>
+      <input 
+      type='radio'
+      id='sameasemail'
+      name='everything'
+      value={FormData.sameasemail}
+      onChange={ChangeHandler}
+      />
+      <label htmlFor='sameasemail'>same as email</label>
+      <input 
+      type='radio'
+      id='nopushnotification'
+      name='everything'
+      value={FormData.nopushnotification}
+      onChange={ChangeHandler}
+      />
+      <label htmlFor='nopushnotification'>No push Notifications</label>
     </setfield>
      </form>
 

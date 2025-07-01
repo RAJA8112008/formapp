@@ -3,13 +3,13 @@ import './App.css';
 import { useState } from 'react';
 function App() {
   const[FormData,setFormData]=useState({firstName:"",lastName:"",email:"",country:"",streetaddress:"",
-    city:"",state:""
+    city:"",state:"",postal:"",comments:false,offer:false,candidate:false
   })
   function ChangeHandler(event){
     const{name,value,type,checked}=event.target;
     setFormData((prev)=>({...prev,
-      [name]:value
-    }))
+      [name]:type==="checked"?checked:value
+    }));
   }
   return (
     <div className="App">
@@ -107,7 +107,46 @@ function App() {
        onChange={ChangeHandler}
       value={FormData.postal}
       />
+    <setfield>
+<legend>By Email</legend>
+<div className='flex'>
+<input 
+ type='checkbox'
+ name='comments'
+ id='comments'
+ checked={FormData.comments}
+onChange={ChangeHandler}
+/>
+<div>
+  <label>Comments</label>
+  <p>get notified when someone post a comment on posting</p>
+</div>
+<input 
+ type='checkbox'
+ name='candidate'
+ id='candidate'
+ checked={FormData.candidate}
+onChange={ChangeHandler}
+/>
+<div>
+  <label>Candidate</label>
+  <p>get notified when candidate accept and reject offer</p>
+</div>
 
+<input 
+ type='checkbox'
+ name='offer'
+ id='offer'
+ checked={FormData.offer}
+onChange={ChangeHandler}
+/>
+<div>
+  <label>Offer</label>
+  <p>get notified when someone post a job</p>
+</div>
+
+</div>
+    </setfield>
      </form>
 
     </div>
